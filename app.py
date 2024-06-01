@@ -29,3 +29,13 @@ if list(main_collection.find()) == []:
     st.success('Database Collection uploaded')
     st.balloons()
 
+def reading_MongoDB():
+        vishwas = MongoClient("mongodb+srv://basotra97:aSTR9c!PQ8Fs8o77@cluster0.nvekqq7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+        db = vishwas['AirbnbDB']
+        collection = db.Airbnb_collection
+        retireved_mongodb_data = []
+        for i in collection.find():
+            retireved_mongodb_data.append(i)
+        return retireved_mongodb_data
+
+airbnbRetrievedData = reading_MongoDB()
